@@ -108,6 +108,8 @@ d3.csv("billboardHot.csv", function(csvData)
 								name: cur.song,
 								size: cur.weeks*WEIGHTS.WEEKS + (100 - cur.peak)*WEIGHTS.PEAK
 							});
+							found2 = true;
+							break;
 						}
 					}
 					if (!found2)
@@ -120,6 +122,8 @@ d3.csv("billboardHot.csv", function(csvData)
 							}]
 						});
 					}
+					found = true;
+					break;
 				}
 			}
 			if (!found)
@@ -154,6 +158,6 @@ d3.csv("billboardHot.csv", function(csvData)
 			};
 		}
 	}
-	console.log(data['2010']);
+	console.log(data['1990']);
 });
 
