@@ -12,3 +12,22 @@
 	right: 0px;
 	top: 400px;
 }
+
+#yearLabel
+{
+	position: absolute;
+	left:920px;
+	top: 105px;
+	font-family:'Myriad Pro','Trebuchet MS', Helvetica, sans-serif;
+	font-size: 80px;
+	font-weight:bolder;
+	font-style:italic;
+}
+
+#recordLabel
+{
+	position:absolute;
+	top:290px;
+	left: 370px;
+	z-index:10;
+}

@@ -59,6 +59,8 @@ function arcTween(a) {
 function redraw()
 {
 	d3.select("svg").remove();
+	//d3.select("yearLabel").innerHTML = year;
+	document.getElementById("yearLabel").innerHTML = year;
 	var vis = d3.select("#record").append("svg:svg")
 		.attr("width", w)
 		.attr("height", h)
@@ -182,6 +184,7 @@ d3.csv("billboardHot.csv", function(csvData)
 	}
 	redraw();
 });
+
 $(document).ready(function() {
 	$( "#slider" ).slider({
 		max: 30,
