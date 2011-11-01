@@ -194,6 +194,36 @@ d3.csv("billboardHot.csv", function(csvData)
 	redraw();
 });
 
+var playing = false;
+var interval;
+
+function playTick()
+{
+	if (year == '2010')
+	{
+		playing = false;
+	}
+	else
+	{
+		year = "" + (parseInt(year) + 1);
+		redraw();
+	}
+}
+
+function togglePlay()
+{
+	if (playing)
+	{
+		interval = window.clearInterval(interval);
+		playing = false;
+	}
+	else
+	{
+		interval = self.setInterval(playTick, 1000);
+		playing = true;
+	}
+}
+
 $(document).ready(function() {
 	$( "#slider" ).slider({
 		max: 30,

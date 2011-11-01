@@ -6,6 +6,15 @@
 	width: 200px;
 }
 
+#play
+{
+	position: absolute;
+	left: 950px;
+	top: 250px;
+	height: 32px;
+	width: 32px;
+}
+
 #tooltip
 {
 	position: absolute;
