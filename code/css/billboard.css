@@ -16,7 +16,7 @@
 #yearLabel
 {
 	position: absolute;
-	left:910px;
+	left:915px;
 	top: 105px;
 	font-family:'Myriad Pro','Trebuchet MS', Helvetica, sans-serif;
 	font-size: 80px;
@@ -27,7 +27,7 @@
 #recordLabel
 {
 	position:absolute;
-	top:280px;
-	left: 360px;
+	top:285px;
+	left: 365px;
 	z-index:10;
 }
