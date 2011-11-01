@@ -1,3 +1,11 @@
+const WEIGHTS =
+{
+	PEAK: 5,
+	WEEKS: 1
+}
+
+var data = {}
+
 /*var w = 960,
     h = 700,
     r = Math.min(w, h) / 2,
@@ -74,7 +82,75 @@ function arcTween(a) {
 
 // Get Data
 
-d3.csv("billboardHot.csv", function(data) {
-	console.log(data)
+d3.csv("billboardHot.csv", function(csvData) 
+{
+	var num = csvData.length;
+	var cur, year, children, found, found2;
+	for (var i = 0; i < num; ++i)
+	{
+		cur = csvData[i];
+		year = cur.year;
+		if (data.hasOwnProperty(year))
+		{
+			children = data[year].children;
+			found = false;
+			for (var j = 0; j < children.length; ++j)
+			{
+				if (children[j] == cur.genre)
+				{
+					found2 = false;
+					children = children[j].children;
+					for (var k = 0; k < children.length; ++k)
+					{
+						if (children[k] == cur.artist)
+						{
+							children[k].children.push([{
+								name: cur.song,
+								size: cur.weeks*WEIGHTS.WEEKS + (100 - cur.peak)*WEIGHTS.PEAK
+							}]);
+						}
+					}
+					if (!found2)
+					{
+						children.push([{
+							name: cur.artist,
+							children: [{
+								name: cur.song,
+								size: cur.weeks*WEIGHTS.WEEKS + (100 - cur.peak)*WEIGHTS.PEAK
+							}]
+						}]);
+					}
+				}
+			}
+			if (!found)
+			{
+				children.push([{
+					name: cur.genre,
+					children: [{
+						name: cur.artist,
+						children: [{
+							name: cur.song,
+							size: cur.weeks*WEIGHTS.WEEKS + (100 - cur.peak)*WEIGHTS.PEAK
+						}]
+					}]
+				}]);
+			}
+		}
+		else
+		{
+			data[year] = 
+			{
+				name: year,
+				children: [{
+					name: cur.genre,
+					children: [{
+						name: cur.song,
+						size: cur.weeks*WEIGHTS.WEEKS + (100 - cur.peak)*WEIGHTS.PEAK
+					}]
+				}]
+			};
+		}
+	}
+	console.log(tree['2010']);
 });
 
