@@ -7,8 +7,8 @@ const WEIGHTS =
 var data = {}
 
 var w = 960,
-	h = 700,
-	r = Math.min(w, h) / 2, //radius
+	h = 750,
+	r = Math.min(w, h) / 2 - 100, //radius
 	colors = 
 	{
 		"Pop": "#DD2858",
@@ -31,6 +31,11 @@ var vis = d3.select("#record").append("svg:svg")
 	.attr("height", h)
 	.append("svg:g")
 	.attr("transform", "translate(" + w / 2 + "," + h / 2 +")");
+
+vis.append("svg:circle")
+		.style("stroke", "black")
+		.style("fill", "black")
+		.attr("r", 375);
 
 // Recursively partition node tree into sunburst
 var partition = d3.layout.partition()
@@ -152,3 +157,9 @@ d3.csv("billboardHot.csv", function(csvData)
 		});
 });
 
+
+
+vis.append("svg:circle")
+	.style("stroke", "white")
+	.style("fill", "white")
+	.attr("r", 60);
