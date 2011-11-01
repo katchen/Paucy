@@ -85,6 +85,7 @@ function redraw()
 		.style("fill", "white")
 		.attr("r", 60);
 	var paths = d3.selectAll("path").attr("opacity", 1);
+	$(".svg:path").tipsy({ gravity: 's'});
 	paths.on("mouseover", function(d) {
 		paths.filter(function(d2) { return d.name != d2.name })
 			.attr("opacity", 0.3);
