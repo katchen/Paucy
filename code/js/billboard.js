@@ -339,12 +339,12 @@ function togglePlay()
 {
 	if (playing)
 	{
-		interval = window.clearInterval(interval);
+		interval = this.clearInterval(interval);
 		playing = false;
 	}
 	else
 	{
-		interval = self.setInterval(playTick, 1000);
+		interval = this.setInterval(playTick, 1000);
 		playing = true;
 	}
 }
