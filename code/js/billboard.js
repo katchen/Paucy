@@ -80,7 +80,7 @@ function redraw()
 			color = colors[d.parent ? (d.children ? (d.children[0].children ? d : d.parent) : d.parent.parent).name : "year"]; 
 			return color;
 		});
-	d3.select("#record").exit().remove();
+	d3.select("#record").selectAll("svg:svg").exit().remove();
 	vis.append("svg:circle")
 		.style("stroke", "white")
 		.style("fill", "white")
