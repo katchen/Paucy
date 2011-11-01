@@ -85,7 +85,7 @@ function arcTween(a) {
 d3.csv("billboardHot.csv", function(csvData) 
 {
 	var num = csvData.length;
-	var cur, year, children, found, found2;
+	var cur, year, children, children2, found, found2;
 	for (var i = 0; i < num; ++i)
 	{
 		cur = csvData[i];
@@ -96,35 +96,39 @@ d3.csv("billboardHot.csv", function(csvData)
 			found = false;
 			for (var j = 0; j < children.length; ++j)
 			{
-				if (children[j] == cur.genre)
+				if (children[j].name == cur.genre)
 				{
 					found2 = false;
-					children = children[j].children;
-					for (var k = 0; k < children.length; ++k)
+					children2 = children[j].children;
+					for (var k = 0; k < children2.length; ++k)
 					{
-						if (children[k] == cur.artist)
+						if (children2[k].name == cur.artist)
 						{
-							children[k].children.push([{
+							children2[k].children.push({
 								name: cur.song,
 								size: cur.weeks*WEIGHTS.WEEKS + (100 - cur.peak)*WEIGHTS.PEAK
-							}]);
+							});
+							found2 = true;
+							break;
 						}
 					}
 					if (!found2)
 					{
-						children.push([{
+						children2.push({
 							name: cur.artist,
 							children: [{
 								name: cur.song,
 								size: cur.weeks*WEIGHTS.WEEKS + (100 - cur.peak)*WEIGHTS.PEAK
 							}]
-						}]);
+						});
 					}
+					found = true;
+					break;
 				}
 			}
 			if (!found)
 			{
-				children.push([{
+				children.push({
 					name: cur.genre,
 					children: [{
 						name: cur.artist,
@@ -133,7 +137,7 @@ d3.csv("billboardHot.csv", function(csvData)
 							size: cur.weeks*WEIGHTS.WEEKS + (100 - cur.peak)*WEIGHTS.PEAK
 						}]
 					}]
-				}]);
+				});
 			}
 		}
 		else
@@ -144,13 +148,16 @@ d3.csv("billboardHot.csv", function(csvData)
 				children: [{
 					name: cur.genre,
 					children: [{
-						name: cur.song,
-						size: cur.weeks*WEIGHTS.WEEKS + (100 - cur.peak)*WEIGHTS.PEAK
+						name: cur.artist,
+						children: [{
+							name: cur.song,
+							size: cur.weeks*WEIGHTS.WEEKS + (100 - cur.peak)*WEIGHTS.PEAK
+						}]
 					}]
 				}]
 			};
 		}
 	}
-	console.log(tree['2010']);
+	console.log(data['1990']);
 });
 
