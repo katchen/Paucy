@@ -87,8 +87,10 @@ function redraw()
 	var paths = d3.selectAll("path").attr("opacity", 1);
 	$("path").tipsy({ gravity: 's'});
 	paths.on("mouseover", function(d) {
-		paths.filter(function(d2) { return d.name != d2.name })
+		paths.filter(function(d2) { return d != d2 })
 			.attr("opacity", 0.3);
+			$("tooltip").html(d.name);
+			$("tooltip").show();
 			/*$("#popover #cause").html(d.cause);
 			$("#popover #people").html(d.people);
 			$("#popover #age").html(d.age);
