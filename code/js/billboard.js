@@ -169,8 +169,7 @@ d3.csv("billboardHot.csv", function(csvData)
 });
 
 $( "#slider" ).slider({
-	min: 1980,
-	max: 2010,
-	value: 2010,
-	slide: function(event, ui) { year = "" + ui.value; redraw(); }
+	max: 30,
+	value: 30,
+	slide: function(event, ui) { year = "" + (1980 + ui.value); redraw(); }
 });
