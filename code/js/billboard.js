@@ -58,8 +58,133 @@ function arcTween(a) {
 
 function redraw()
 {
-	d3.select("svg").remove();
-	//d3.select("yearLabel").innerHTML = year;
+	d3.selectAll("svg").remove();
+
+	var leg = d3.select("#legend").append("svg:svg")
+		.attr("width", 400)
+		.attr("height", 300)
+		.append("svg:g");
+	leg.append("svg:circle")
+		.style("fill", colors["Pop"])
+		.attr("r", 15)
+		.attr("cx", 20)
+		.attr("cy", 20);
+	leg.append("svg:text")
+		.text("Pop")
+		.attr("x", 48)
+		.attr("y", 25)
+		.attr("font-family", "Myriad Pro");		
+	leg.append("svg:circle")
+		.style("fill", colors["Rock"])
+		.attr("r", 15)
+		.attr("cx", 20)
+		.attr("cy", 60);
+	leg.append("svg:text")
+		.text("Rock")
+		.attr("x", 48)
+		.attr("y", 65)
+		.attr("font-family", "Myriad Pro");
+	leg.append("svg:circle")
+		.style("fill", colors["Rhythm and blues (R&B)"])
+		.attr("r", 15)
+		.attr("cx", 20)
+		.attr("cy", 100);
+	leg.append("svg:text")
+		.text("Rhythm & blues (R&B)")
+		.attr("x", 48)
+		.attr("y", 105)
+		.attr("font-family", "Myriad Pro");
+	leg.append("svg:circle")
+		.style("fill", colors["Heavy metal"])
+		.attr("r", 15)
+		.attr("cx", 20)
+		.attr("cy", 140);
+	leg.append("svg:text")
+		.text("Heavy metal")
+		.attr("x", 48)
+		.attr("y", 145)
+		.attr("font-family", "Myriad Pro");			
+	leg.append("svg:circle")
+		.style("fill", colors["Dance"])
+		.attr("r", 15)
+		.attr("cx", 20)
+		.attr("cy", 180);
+	leg.append("svg:text")
+		.text("Dance")
+		.attr("x", 48)
+		.attr("y", 185)
+		.attr("font-family", "Myriad Pro");
+	leg.append("svg:circle")
+		.style("fill", colors["Alternative rock"])
+		.attr("r", 15)
+		.attr("cx", 20)
+		.attr("cy", 220);
+	leg.append("svg:text")
+		.text("Alternative rock")
+		.attr("x", 48)
+		.attr("y", 225)
+		.attr("font-family", "Myriad Pro");	
+	leg.append("svg:circle")
+		.style("fill", colors["Soul"])
+		.attr("r", 15)
+		.attr("cx", 225)
+		.attr("cy", 20);
+	leg.append("svg:text")
+		.text("Soul")
+		.attr("x", 253)
+		.attr("y", 25)
+		.attr("font-family", "Myriad Pro");
+	leg.append("svg:circle")
+		.style("fill", colors["Hip hop/Rap"])
+		.attr("r", 15)
+		.attr("cx", 225)
+		.attr("cy", 60);
+	leg.append("svg:text")
+		.text("Hip hop/Rap")
+		.attr("x", 253)
+		.attr("y", 65)
+		.attr("font-family", "Myriad Pro");
+	leg.append("svg:circle")
+		.style("fill", colors["Funk"])
+		.attr("r", 15)
+		.attr("cx", 225)
+		.attr("cy", 100);
+	leg.append("svg:text")
+		.text("Funk")
+		.attr("x", 253)
+		.attr("y", 105)
+		.attr("font-family", "Myriad Pro");
+	leg.append("svg:circle")
+		.style("fill", colors["Country"])
+		.attr("r", 15)
+		.attr("cx", 225)
+		.attr("cy", 140);
+	leg.append("svg:text")
+		.text("Country")
+		.attr("x", 253)
+		.attr("y", 145)
+		.attr("font-family", "Myriad Pro");
+	leg.append("svg:circle")
+		.style("fill", colors["Jazz"])
+		.attr("r", 15)
+		.attr("cx", 225)
+		.attr("cy", 180);
+	leg.append("svg:text")
+		.text("Jazz")
+		.attr("x", 253)
+		.attr("y", 185)
+		.attr("font-family", "Myriad Pro");
+	leg.append("svg:circle")
+		.style("fill", colors["Other"])
+		.attr("r", 15)
+		.attr("cx", 225)
+		.attr("cy", 220);
+	leg.append("svg:text")
+		.text("Other")
+		.attr("x", 253)
+		.attr("y", 225)
+		.attr("font-family", "Myriad Pro");
+
 	document.getElementById("yearLabel").innerHTML = year;
 	var vis = d3.select("#record").append("svg:svg")
 		.attr("width", w)
@@ -142,7 +267,7 @@ d3.csv("billboardHot.csv", function(csvData)
 							name: cur.artist,
 							children: [{
 								name: cur.song,
-								size: cur.weeks*WEIGHTS.WEEKS + (100 - cur.peak)*WEIGHTS.PEAK
+								size: parseInt(cur.weeks)*WEIGHTS.WEEKS + (100 - parseInt(cur.peak))*WEIGHTS.PEAK
 							}]
 						});
 					}
@@ -158,7 +283,7 @@ d3.csv("billboardHot.csv", function(csvData)
 						name: cur.artist,
 						children: [{
 							name: cur.song,
-							size: cur.weeks*WEIGHTS.WEEKS + (100 - cur.peak)*WEIGHTS.PEAK
+							size: parseInt(cur.weeks)*WEIGHTS.WEEKS + (100 - parseInt(cur.peak))*WEIGHTS.PEAK
 						}]
 					}]
 				});
@@ -184,7 +309,7 @@ d3.csv("billboardHot.csv", function(csvData)
 						name: cur.artist,
 						children: [{
 							name: cur.song,
-							size: "" + cur.weeks*WEIGHTS.WEEKS + (100 - cur.peak)*WEIGHTS.PEAK
+							size: parseInt(cur.weeks)*WEIGHTS.WEEKS + (100 - parseInt(cur.peak))*WEIGHTS.PEAK
 						}]
 					});
 				}
