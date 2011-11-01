@@ -7,7 +7,7 @@ const WEIGHTS =
 var data = {}
 
 var w = 960,
-	h = 800,
+	h = 700,
 	r = Math.min(w, h) / 2, //radius
 	colors = 
 	{
