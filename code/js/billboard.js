@@ -86,18 +86,17 @@ function redraw()
 		.attr("r", 60);
 	var paths = d3.selectAll("path").attr("opacity", 1);
 	paths.on("mouseover", function(d) {
-		allPaths
-			.filter(function(d2) { return d.name != d2.name })
-		      .attr("opacity", 0.3);
-		      /*$("#popover #cause").html(d.cause);
-		      $("#popover #people").html(d.people);
-		      $("#popover #age").html(d.age);
-		      $("#popover #gender").html((d.gender == "1") ? "male" : "female");
-		      $("#popover").css("left", d3.event.x)
+		paths.filter(function(d2) { return d.name != d2.name })
+			.attr("opacity", 0.3);
+			/*$("#popover #cause").html(d.cause);
+			$("#popover #people").html(d.people);
+			$("#popover #age").html(d.age);
+			$("#popover #gender").html((d.gender == "1") ? "male" : "female");
+			$("#popover").css("left", d3.event.x)
 		                   .css("top", d3.event.y + 10)
 		                   .show();*/
 		     })
-			.on("mouseout", function() { paths.attr("opacity", 1); });//$("#popover").hide(); })
+		.on("mouseout", function() { paths.attr("opacity", 1); });//$("#popover").hide(); })
 }
 
 // Get Data
