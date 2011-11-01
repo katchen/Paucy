@@ -171,5 +171,5 @@ d3.csv("billboardHot.csv", function(csvData)
 $( "#slider" ).slider({
 	max: 30,
 	value: 30,
-	slide: function(event, ui) { year = "" + (1980 + ui.value); redraw(); }
+	slide: function(event, ui) { year = "" + (1980 + ui.value); redraw(); return true;}
 });
