@@ -27,17 +27,6 @@ var w = 960,
 		"year": "#F69F13"
 	}
 
-var vis = d3.select("#record").append("svg:svg")
-	.attr("width", w)
-	.attr("height", h)
-	.append("svg:g")
-	.attr("transform", "translate(" + w / 2 + "," + h / 2 +")");
-
-vis.append("svg:circle")
-		.style("stroke", "black")
-		.style("fill", "black")
-		.attr("r", 375);
-
 // Recursively partition node tree into sunburst
 var partition = d3.layout.partition()
 	.sort(null) // Default is descending order by associated input data's numeric value attribute
@@ -69,6 +58,17 @@ function arcTween(a) {
 
 function redraw()
 {
+	d3.select("svg").remove();
+	var vis = d3.select("#record").append("svg:svg")
+		.attr("width", w)
+		.attr("height", h)
+		.append("svg:g")
+		.attr("transform", "translate(" + w / 2 + "," + h / 2 +")");
+
+	vis.append("svg:circle")
+			.style("stroke", "black")
+			.style("fill", "black")
+			.attr("r", 375);
 	var path = vis.data([data[year]]).selectAll("path") // Selects all elements that match selector string
 		.data(partition.nodes)
 		.enter().append("svg:path")
@@ -80,7 +80,6 @@ function redraw()
 			color = colors[d.parent ? (d.children ? (d.children[0].children ? d : d.parent) : d.parent.parent).name : "year"]; 
 			return color;
 		});
-	d3.select("#record").selectAll("div").exit().remove();
 	vis.append("svg:circle")
 		.style("stroke", "white")
 		.style("fill", "white")
