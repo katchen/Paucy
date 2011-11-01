@@ -11,7 +11,9 @@ var w = 960,
 	r = Math.min(w, h) / 2, //radius
 	color = d3.scale.ordinal()
 		.range(["#DD2858", "#328768", "#67A2C9", "#204EE2", "#9C67C6", "#9CD8BF", "#DB3BBD", "#7E2230", "#CC9BB2", "#CAC765", "#DCEBCC", "B7B2B5"]);
-		
+	console.log(color);
+
+	
 var vis = d3.select("#record").append("svg:svg")
 	.attr("width", w)
 	.attr("height", h)
@@ -128,10 +130,10 @@ d3.csv("billboardHot.csv", function(csvData)
 	var path = vis.data([data['2010']]).selectAll("path") // Selects all elements that match selector string
 		.data(partition.nodes)
 		.enter().append("svg:path")
-		.attr("display", function(d) { return d.depth ? null : "none"; }) // hide inner ring
+		//.attr("display", function(d) { return d.depth ? null : "none"; }) // hide inner ring
 		.attr("d", arc)
 		.attr("fill-rule", "evenodd")
 		.style("stroke", "#fff")
-		.style("fill", function(d) { return color((d.children ? d : d.parent).name); });
+		.style("fill", function(d) { console.log(d); return color((d.children ? d : d.parent).name); });
 });
 
