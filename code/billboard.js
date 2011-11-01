@@ -155,11 +155,13 @@ d3.csv("billboardHot.csv", function(csvData)
 			color = colors[d.parent ? (d.children ? (d.children[0].children ? d : d.parent) : d.parent.parent).name : "year"]; 
 			return color;
 		});
+		
+		
+		vis.append("svg:circle")
+			.style("stroke", "white")
+			.style("fill", "white")
+			.attr("r", 60);
+
 });
 
 
-
-vis.append("svg:circle")
-	.style("stroke", "white")
-	.style("fill", "white")
-	.attr("r", 60);
