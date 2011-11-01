@@ -145,7 +145,7 @@ d3.csv("billboardHot.csv", function(csvData)
 		}
 	}
 	var path = vis.data([data['2010']]).selectAll("path") // Selects all elements that match selector string
-		.data(partition.value(function(d) { return d.size; })
+		.data(partition.value(function(d) { return d.size; }))
 		.enter().append("svg:path")
 		//.attr("display", function(d) { return d.depth ? null : "none"; }) // hide inner ring
 		.attr("d", arc)
