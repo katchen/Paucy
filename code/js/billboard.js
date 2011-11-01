@@ -167,9 +167,10 @@ d3.csv("billboardHot.csv", function(csvData)
 	}
 	redraw();
 });
-
-$( "#slider" ).slider({
-	max: 30,
-	value: 30,
-	slide: function(event, ui) { year = "" + (1980 + ui.value); redraw(); return true;}
+$(document).ready(function() {
+	$( "#slider" ).slider({
+		max: 30,
+		value: 30,
+		slide: function(event, ui) { year = "" + (1980 + ui.value); redraw(); return true;}
+	});
 });
