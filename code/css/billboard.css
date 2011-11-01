@@ -8,20 +8,25 @@
 
 #tooltip
 {
-	position: absolute;
-	right: 0px;
-	top: 400px;
+	left: 900px;
+	top: 300px;
+	display:inline; 
+	position:absolute; 
+	background:#ffffff; 
+	border:1px solid #cccccc; 
+	color:#6c6c6c;
 }
 
 #yearLabel
 {
 	position: absolute;
-	left:915px;
+	left:917px;
 	top: 105px;
 	font-family:'Myriad Pro','Trebuchet MS', Helvetica, sans-serif;
 	font-size: 80px;
 	font-weight:bolder;
 	font-style:italic;
+	color:#E8E9EB;
 }
 
 #recordLabel
@@ -30,4 +35,15 @@
 	top:285px;
 	left: 365px;
 	z-index:10;
+}
+
+#legend 
+{
+	padding:10px;
+	position:absolute;
+	left:900px;
+	top: 400px;
+	border: 1px #E8E9EB solid;
+	height: 250px;
+	width:400px;
 }
