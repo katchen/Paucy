@@ -9,6 +9,7 @@ Heavy metal: #204EE2
 R&B: #67A2C9
 Rock: #328768
 Pop: #DD2858
+Other: #B7B2B5
 
 Record center: #F69F13
 Record: #000000
