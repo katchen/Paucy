@@ -5,6 +5,7 @@ const WEIGHTS =
 }
 
 var data = {}
+var year = '2010'
 
 var w = 960,
 	h = 750,
@@ -64,6 +65,26 @@ function arcTween(a) {
     a.dx0 = b.dx;
     return arc(b);
   };
+}
+
+function redraw()
+{
+	var path = vis.data([data[year]]).selectAll("path") // Selects all elements that match selector string
+		.data(partition.nodes)
+		.enter().append("svg:path")
+		//.attr("display", function(d) { return d.depth ? null : "none"; }) // hide inner ring
+		.attr("d", arc)
+		.attr("fill-rule", "evenodd")
+		.style("stroke", "#fff")
+		.style("fill", function(d) { 
+			color = colors[d.parent ? (d.children ? (d.children[0].children ? d : d.parent) : d.parent.parent).name : "year"]; 
+			return color;
+		});
+
+		vis.append("svg:circle")
+					.style("stroke", "white")
+					.style("fill", "white")
+					.attr("r", 60);
 }
 
 // Get Data
@@ -144,21 +165,12 @@ d3.csv("billboardHot.csv", function(csvData)
 			};
 		}
 	}
-	var path = vis.data([data['2010']]).selectAll("path") // Selects all elements that match selector string
-		.data(partition.nodes)
-		.enter().append("svg:path")
-		//.attr("display", function(d) { return d.depth ? null : "none"; }) // hide inner ring
-		.attr("d", arc)
-		.attr("fill-rule", "evenodd")
-		.style("stroke", "#fff")
-		.style("fill", function(d) { 
-			color = colors[d.parent ? (d.children ? (d.children[0].children ? d : d.parent) : d.parent.parent).name : "year"]; 
-			return color;
-		});
-
-		vis.append("svg:circle")
-					.style("stroke", "white")
-					.style("fill", "white")
-					.attr("r", 60);
+	redraw();
 });
 
+$( "#slider" ).slider({
+	min: 1980,
+	max: 2010,
+	value: 2010,
+	slide: function(event, ui) { year = "" + ui.value; redraw(); }
+});
