@@ -112,7 +112,7 @@ d3.csv("billboardHot.csv", function(csvData)
 					}
 					if (!found2)
 					{
-						children.push({
+						children2.push({
 							name: cur.artist,
 							children: [{
 								name: cur.song,
