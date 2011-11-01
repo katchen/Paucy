@@ -58,7 +58,7 @@ function arcTween(a) {
 
 function redraw()
 {
-	d3.select("svg").remove();
+	d3.selectAll("svg").remove();
 
 	var leg = d3.select("#legend").append("svg:svg")
 		.attr("width", 400)
