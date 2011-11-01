@@ -267,7 +267,7 @@ d3.csv("billboardHot.csv", function(csvData)
 							name: cur.artist,
 							children: [{
 								name: cur.song,
-								size: cur.weeks*WEIGHTS.WEEKS + (100 - cur.peak)*WEIGHTS.PEAK
+								size: parseInt(cur.weeks)*WEIGHTS.WEEKS + (100 - parseInt(cur.peak))*WEIGHTS.PEAK
 							}]
 						});
 					}
@@ -283,7 +283,7 @@ d3.csv("billboardHot.csv", function(csvData)
 						name: cur.artist,
 						children: [{
 							name: cur.song,
-							size: cur.weeks*WEIGHTS.WEEKS + (100 - cur.peak)*WEIGHTS.PEAK
+							size: parseInt(cur.weeks)*WEIGHTS.WEEKS + (100 - parseInt(cur.peak))*WEIGHTS.PEAK
 						}]
 					}]
 				});
@@ -309,7 +309,7 @@ d3.csv("billboardHot.csv", function(csvData)
 						name: cur.artist,
 						children: [{
 							name: cur.song,
-							size: "" + cur.weeks*WEIGHTS.WEEKS + (100 - cur.peak)*WEIGHTS.PEAK
+							size: parseInt(cur.weeks)*WEIGHTS.WEEKS + (100 - parseInt(cur.peak))*WEIGHTS.PEAK
 						}]
 					});
 				}
