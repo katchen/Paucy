@@ -104,27 +104,27 @@ d3.csv("billboardHot.csv", function(csvData)
 					{
 						if (children2[k].name == cur.artist)
 						{
-							children2[k].children.push([{
+							children2[k].children.push({
 								name: cur.song,
 								size: cur.weeks*WEIGHTS.WEEKS + (100 - cur.peak)*WEIGHTS.PEAK
-							}]);
+							});
 						}
 					}
 					if (!found2)
 					{
-						children.push([{
+						children.push({
 							name: cur.artist,
 							children: [{
 								name: cur.song,
 								size: cur.weeks*WEIGHTS.WEEKS + (100 - cur.peak)*WEIGHTS.PEAK
 							}]
-						}]);
+						});
 					}
 				}
 			}
 			if (!found)
 			{
-				children.push([{
+				children.push({
 					name: cur.genre,
 					children: [{
 						name: cur.artist,
@@ -133,7 +133,7 @@ d3.csv("billboardHot.csv", function(csvData)
 							size: cur.weeks*WEIGHTS.WEEKS + (100 - cur.peak)*WEIGHTS.PEAK
 						}]
 					}]
-				}]);
+				});
 			}
 		}
 		else
