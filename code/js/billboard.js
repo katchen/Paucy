@@ -170,7 +170,7 @@ d3.csv("billboardHot.csv", function(csvData)
 			{
 				name: year,
 				children: [{name: "Pop", children: []}, {name: "Rock", children: []}, {name: "Rhythm and blues (R&B)", children: []},
-					{name: "Heavy metal", children: []}, {name: "Dance", children: []}, {name: "Alternative rock", children: []}
+					{name: "Heavy metal", children: []}, {name: "Dance", children: []}, {name: "Alternative rock", children: []},
 					{name: "Soul", children: []}, {name: "Hip hop/Rap", children: []}, {name: "Funk", children: []},
 					{name: "Country", children: []}, {name: "Jazz", children: []}, {name: "Other", children: []}
 				]
