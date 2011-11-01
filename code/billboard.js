@@ -151,6 +151,6 @@ d3.csv("billboardHot.csv", function(csvData)
 			};
 		}
 	}
-	console.log(tree['2010']);
+	console.log(data['2010']);
 });
 
