@@ -331,6 +331,7 @@ function playTick()
 	else
 	{
 		year = "" + (parseInt(year) + 1);
+		$( "#slider" ).slider("value", parseInt(year));
 		redraw();
 	}
 }
