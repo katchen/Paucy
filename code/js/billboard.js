@@ -180,7 +180,7 @@ d3.csv("billboardHot.csv", function(csvData)
 			{
 				if (gchildren[ii].name == cur.genre)
 				{
-					gchildren[ii].push({
+					gchildren[ii].children.push({
 						name: cur.artist,
 						children: [{
 							name: cur.song,
