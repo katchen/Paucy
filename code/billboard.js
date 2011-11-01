@@ -22,7 +22,7 @@ var w = 960,
 		"Funk": "#CC9BB2",
 		"Country": "#CAC765",
 		"Jazz": "#DCEBCC",
-		"Other": "B7B2B5"
+		"Other": "B7B2B5",
 		"year": "#F69F13"
 	}
 
