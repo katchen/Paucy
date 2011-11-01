@@ -195,7 +195,7 @@ function redraw()
 			.style("stroke", "black")
 			.style("fill", "black")
 			.attr("r", 375);
-	/*var path = vis.data([data[year]]).selectAll("path") // Selects all elements that match selector string
+	var path = vis.data([data[year]]).selectAll("path") // Selects all elements that match selector string
 		.data(partition.nodes)
 		.enter().append("svg:path")
 		//.attr("display", function(d) { return d.depth ? null : "none"; }) // hide inner ring
@@ -205,7 +205,7 @@ function redraw()
 		.style("fill", function(d) { 
 			color = colors[d.parent ? (d.children ? (d.children.length == 0 || d.children[0].children ? d : d.parent) : d.parent.parent).name : "year"]; 
 			return color;
-		});*/
+		});
 	vis.append("svg:circle")
 		.style("stroke", "white")
 		.style("fill", "white")
@@ -229,7 +229,7 @@ function redraw()
 }
 
 // Get Data
-/*
+
 d3.csv("billboardHot.csv", function(csvData) 
 {
 	var num = csvData.length;
@@ -317,7 +317,7 @@ d3.csv("billboardHot.csv", function(csvData)
 	}
 	redraw();
 });
-*/
+
 $(document).ready(function() {
 	$( "#slider" ).slider({
 		max: 30,
