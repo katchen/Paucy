@@ -1,0 +1,14 @@
+Jazz: #DCEBCC
+Country music: #CAC765
+Funk: #CC9BB2
+Hip hop: #7E22E0
+Soul music: #DB3BBD
+Alternative rock: #9CD8BF
+Dance: #9C67C6
+Heavy metal: #204EE2
+R&B: #67A2C9
+Rock: #328768
+Pop: #DD2858
+
+Record center: #F69F13
+Record: #000000
