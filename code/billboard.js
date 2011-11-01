@@ -96,13 +96,13 @@ d3.csv("billboardHot.csv", function(csvData)
 			found = false;
 			for (var j = 0; j < children.length; ++j)
 			{
-				if (children[j] == cur.genre)
+				if (children[j].name == cur.genre)
 				{
 					found2 = false;
 					children = children[j].children;
 					for (var k = 0; k < children.length; ++k)
 					{
-						if (children[k] == cur.artist)
+						if (children[k].name == cur.artist)
 						{
 							children[k].children.push([{
 								name: cur.song,
