@@ -144,8 +144,11 @@ d3.csv("billboardHot.csv", function(csvData)
 				children: [{
 					name: cur.genre,
 					children: [{
-						name: cur.song,
-						size: cur.weeks*WEIGHTS.WEEKS + (100 - cur.peak)*WEIGHTS.PEAK
+						name: cur.artist,
+						children: [{
+							name: cur.song,
+							size: cur.weeks*WEIGHTS.WEEKS + (100 - cur.peak)*WEIGHTS.PEAK
+						}]
 					}]
 				}]
 			};
