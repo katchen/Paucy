@@ -146,6 +146,10 @@ d3.csv("billboardHot.csv", function(csvData)
 		.attr("d", arc)
 		.attr("fill-rule", "evenodd")
 		.style("stroke", "#fff")
-		.style("fill", function(d) { return colors[d.parent ? (d.children ? (d.children.childred ? d : d.parent) : d.parent.parent).name : "year"]; });
+		.style("fill", function(d) { 
+			color = colors[d.parent ? (d.children ? (d.children.childred ? d : d.parent) : d.parent.parent).name : "year"]; 
+			console.log(d);
+			console.log(color);
+		});
 });
 
