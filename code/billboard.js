@@ -147,7 +147,7 @@ d3.csv("billboardHot.csv", function(csvData)
 		.attr("fill-rule", "evenodd")
 		.style("stroke", "#fff")
 		.style("fill", function(d) { 
-			color = colors[d.parent ? (d.children ? (d.children[0].childred ? d : d.parent) : d.parent.parent).name : "year"]; 
+			color = colors[d.parent ? (d.children ? (d.children[0].children ? d : d.parent) : d.parent.parent).name : "year"]; 
 			return color;
 		});
 });
