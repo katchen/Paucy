@@ -15,6 +15,8 @@
 	background:#ffffff; 
 	border:1px solid #cccccc; 
 	color:#6c6c6c;
+	width:200px;
+	height:100px;
 }
 
 #yearLabel
@@ -42,7 +44,7 @@
 	padding:10px;
 	position:absolute;
 	left:900px;
-	top: 400px;
+	top: 450px;
 	border: 1px #E8E9EB solid;
 	height: 250px;
 	width:400px;
