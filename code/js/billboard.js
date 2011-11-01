@@ -79,7 +79,7 @@ function redraw()
 		.attr("fill-rule", "evenodd")
 		.style("stroke", "#fff")
 		.style("fill", function(d) { 
-			color = colors[d.parent ? (d.children ? (d.children[0].children ? d : d.parent) : d.parent.parent).name : "year"]; 
+			color = colors[d.parent ? (d.children && d.children.length ? (d.children[0].children ? d : d.parent) : d.parent.parent).name : "year"]; 
 			return color;
 		});
 	vis.append("svg:circle")
