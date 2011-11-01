@@ -169,17 +169,26 @@ d3.csv("billboardHot.csv", function(csvData)
 			data[year] = 
 			{
 				name: year,
-				children: [{
-					name: cur.genre,
-					children: [{
+				children: [{name: "Pop", children: []}, {name: "Rock", children: []}, {name: "Rhythm and blues (R&B)", children: []},
+					{name: "Heavy metal", children: []}, {name: "Dance", children: []}, {name: "Alternative rock", children: []}
+					{name: "Soul", children: []}, {name: "Hip hop/Rap", children: []}, {name: "Funk", children: []},
+					{name: "Country", children: []}, {name: "Jazz", children: []}, {name: "Other", children: []}
+				]
+			}
+			var gchildren = data[year].children 
+			for (var ii = 0; ii < gchildren.length; ++ii)
+			{
+				if (gchildren[ii].name == cur.genre)
+				{
+					gchildren[ii].push({
 						name: cur.artist,
 						children: [{
 							name: cur.song,
 							size: "" + cur.weeks*WEIGHTS.WEEKS + (100 - cur.peak)*WEIGHTS.PEAK
 						}]
-					}]
-				}]
-			};
+					});
+				}
+			}
 		}
 	}
 	redraw();
