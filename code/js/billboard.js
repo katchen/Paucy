@@ -89,8 +89,8 @@ function redraw()
 	paths.on("mouseover", function(d) {
 		paths.filter(function(d2) { return d != d2 })
 			.attr("opacity", 0.3);
-			$("tooltip").html(d.name);
-			$("tooltip").show();
+			$("#tooltip").html(d.name);
+			$("#tooltip").show();
 			/*$("#popover #cause").html(d.cause);
 			$("#popover #people").html(d.people);
 			$("#popover #age").html(d.age);
@@ -99,7 +99,7 @@ function redraw()
 		                   .css("top", d3.event.y + 10)
 		                   .show();*/
 		     })
-		.on("mouseout", function() { paths.attr("opacity", 1); });//$("#popover").hide(); })
+		.on("mouseout", function() { paths.attr("opacity", 1); $("#tooltip").hide(); })
 }
 
 // Get Data
