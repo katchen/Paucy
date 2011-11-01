@@ -32,6 +32,11 @@ var vis = d3.select("#record").append("svg:svg")
 	.append("svg:g")
 	.attr("transform", "translate(" + w / 2 + "," + h / 2 +")");
 
+vis.append("svg:circle")
+		.style("stroke", "black")
+		.style("fill", "black")
+		.attr("r", 375);
+
 // Recursively partition node tree into sunburst
 var partition = d3.layout.partition()
 	.sort(null) // Default is descending order by associated input data's numeric value attribute
@@ -150,5 +155,10 @@ d3.csv("billboardHot.csv", function(csvData)
 			color = colors[d.parent ? (d.children ? (d.children[0].children ? d : d.parent) : d.parent.parent).name : "year"]; 
 			return color;
 		});
+
+		vis.append("svg:circle")
+					.style("stroke", "white")
+					.style("fill", "white")
+					.attr("r", 60);
 });
 
