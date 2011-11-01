@@ -7,8 +7,8 @@ const WEIGHTS =
 var data = {}
 
 var w = 960,
-	h = 750,
-	r = Math.min(w, h) / 2 - 100, //radius
+	h = 700,
+	r = Math.min(w, h) / 2, //radius
 	colors = 
 	{
 		"Pop": "#DD2858",
@@ -32,16 +32,11 @@ var vis = d3.select("#record").append("svg:svg")
 	.append("svg:g")
 	.attr("transform", "translate(" + w / 2 + "," + h / 2 +")");
 
-vis.append("svg:circle")
-		.style("stroke", "black")
-		.style("fill", "black")
-		.attr("r", 375);
-
 // Recursively partition node tree into sunburst
 var partition = d3.layout.partition()
 	.sort(null) // Default is descending order by associated input data's numeric value attribute
 	.size([2 * Math.PI, r * r])
-	.value(function(d) { return 1; });
+	.value(function(d) { return d.size; });
 	
 var arc = d3.svg.arc()
 	.startAngle(function(d) { return d.x; })
@@ -145,7 +140,7 @@ d3.csv("billboardHot.csv", function(csvData)
 		}
 	}
 	var path = vis.data([data['2010']]).selectAll("path") // Selects all elements that match selector string
-		.data(partition.value(function(d) { return d.size; }))
+		.data(partition.nodes)
 		.enter().append("svg:path")
 		//.attr("display", function(d) { return d.depth ? null : "none"; }) // hide inner ring
 		.attr("d", arc)
@@ -155,13 +150,5 @@ d3.csv("billboardHot.csv", function(csvData)
 			color = colors[d.parent ? (d.children ? (d.children[0].children ? d : d.parent) : d.parent.parent).name : "year"]; 
 			return color;
 		});
-		
-		
-		vis.append("svg:circle")
-			.style("stroke", "white")
-			.style("fill", "white")
-			.attr("r", 60);
-
 });
-
 
