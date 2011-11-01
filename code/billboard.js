@@ -41,7 +41,7 @@ vis.append("svg:circle")
 var partition = d3.layout.partition()
 	.sort(null) // Default is descending order by associated input data's numeric value attribute
 	.size([2 * Math.PI, r * r])
-	.value(function(d) { return 1; });
+	.value(function(d) { return d.size; });
 	
 var arc = d3.svg.arc()
 	.startAngle(function(d) { return d.x; })
@@ -137,7 +137,7 @@ d3.csv("billboardHot.csv", function(csvData)
 						name: cur.artist,
 						children: [{
 							name: cur.song,
-							size: cur.weeks*WEIGHTS.WEEKS + (100 - cur.peak)*WEIGHTS.PEAK
+							size: "" + cur.weeks*WEIGHTS.WEEKS + (100 - cur.peak)*WEIGHTS.PEAK
 						}]
 					}]
 				}]
@@ -155,13 +155,10 @@ d3.csv("billboardHot.csv", function(csvData)
 			color = colors[d.parent ? (d.children ? (d.children[0].children ? d : d.parent) : d.parent.parent).name : "year"]; 
 			return color;
 		});
-		
-		
+
 		vis.append("svg:circle")
-			.style("stroke", "white")
-			.style("fill", "white")
-			.attr("r", 60);
-
+					.style("stroke", "white")
+					.style("fill", "white")
+					.attr("r", 60);
 });
-
 
