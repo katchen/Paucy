@@ -60,7 +60,7 @@ function fetchSong(d)
 {
 	var query = d.name + " " + d.parent.name;
 	var request = new XMLHttpRequest();
-	request.open('GET', 'http://tinysong.com/b/' + encodeURIComponent(query) + '?format=json&key=APIKey', true);
+	request.open('GET', 'http://tinysong.com/b/' + encodeURIComponent(query) + '?format=json&key=587dhg34', true);
 	request.onreadystatechange = function (aEvt) {
 	  if (request.readyState == 4) {
 	     if (request.status == 200) {
