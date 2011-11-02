@@ -218,7 +218,7 @@ function redraw()
 		paths.filter(function(d2) { if (!d.parent) return false; return d != d2 })
 			.attr("opacity", 0.3);
 			// If a genre
-			if(d.children[0].children.length > 0)
+			if(d.children && d.children[0].children && d.children[0].children.length > 0)
 			{
 				$("#tooltip").html("Genre: " + d.name);
 			} else if(d.children && d.children.length > 0) {
