@@ -202,6 +202,7 @@ function redraw()
 		//.attr("display", function(d) { return d.depth ? null : "none"; }) // hide inner ring
 		.attr("d", arc)
 		.attr("fill-rule", "evenodd")
+		.attr("class", function(d) { return d.children ? (d.children.length == 0 || d.children[0].children ? "genre" : "artist") : "song"; })
 		.style("stroke", "#fff")
 		.style("fill", function(d) { 
 			color = colors[d.parent ? (d.children ? (d.children.length == 0 || d.children[0].children ? d : d.parent) : d.parent.parent).name : "year"]; 
