@@ -73,7 +73,6 @@ function fetchSong(d)
 		        },
 				dataType: "jsonp",
 				type: "GET",
-				jsonp: 'jsonp',
 		        success: function(data, status){
 		            var id = data["SongID"];
 					playSong(id);
