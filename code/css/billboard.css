@@ -19,13 +19,23 @@
 {
 	left: 900px;
 	top: 300px;
-	display:inline; 
 	position:absolute; 
-	background:#ffffff; 
 	border:1px solid #cccccc; 
 	color:#6c6c6c;
-	width:200px;
-	height:100px;
+	font-family:'Myriad Pro','Trebuchet MS', Helvetica, sans-serif;
+	font-size: 13px;
+	position: relative;
+	
+	background-color:#eee;
+	margin: 0;
+	padding:10px;
+	text-align:center;
+	width:180px;
+	-moz-border-radius:10px;
+	-webkit-border-radius:10px;
+	-webkit-box-shadow: 0px 0 3px rgba(0,0,0,0.25);
+	-moz-box-shadow: 0px 0 3px rgba(0,0,0,0.25);
+	 box-shadow: 0px 0 3px rgba(0,0,0,0.25); 
 }
 
 #yearLabel
@@ -37,7 +47,7 @@
 	font-size: 80px;
 	font-weight:bolder;
 	font-style:italic;
-	color:#E8E9EB;
+	color: #555555;
 }
 
 #recordLabel
@@ -54,9 +64,10 @@
 	position:absolute;
 	left:900px;
 	top: 450px;
-	border: 1px #E8E9EB solid;
+	border: 1px #cccccc solid;
 	height: 250px;
 	width:400px;
+	color: #555555;
 }
 
 #player
