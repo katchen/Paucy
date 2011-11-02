@@ -221,9 +221,9 @@ function redraw()
 			if(d.children[0].children.length > 0)
 			{
 				$("#tooltip").html("Genre: " + d.name);
-			} else if(d.children.length > 0) {
-				$("#tooltip").html("Artist: " + d.name + "\nSongs on chart this year: " + d.children.length);
-			} else if(d.children.length == 0) {
+			} else if(d.children && d.children.length > 0) {
+				$("#tooltip").html("Artist: " + d.name + "\nNumber of songs on chart this year: " + d.children.length);
+			} else if(!d.children) {
 				 $("#tooltip").html("Song: " + d.name + "\nArtist: " + d.parent.name + "\nWeeks on Chart: " + d.weeks + "\nPeak Position" + d.peak);
 			}
 			$("#tooltip").show();
