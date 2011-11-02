@@ -394,7 +394,7 @@ function pausePlay()
 {
 	clearInterval(interval);
 	playing = false;
-	$( "play").show;
+	$( "#play").show;
 	
 }
 
@@ -402,7 +402,7 @@ function togglePlay()
 {
 	interval = setInterval(playTick, 1000);
 	playing = true;
-	$( "play").hide;
+	$( "#play").hide;
 }
 
 $(document).ready(function() {
