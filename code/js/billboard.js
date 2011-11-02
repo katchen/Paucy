@@ -56,6 +56,15 @@ function arcTween(a) {
   };
 }
 
+function playSong(id)
+{
+	var flashvars = {hostname: "cowbell.grooveshark.com", songIds: id, style: "metal", p: "0"};
+	var params = {wmode: "window", allowScriptAccess: "always"};
+	var attributes = null;
+	swfobject.embedSWF("http://grooveshark.com/songWidget.swf", "player", 250, 40, null, null, 
+	, params, attributes, null);
+}
+
 function redraw()
 {
 	d3.selectAll("svg").remove();
@@ -372,3 +381,5 @@ $(document).ready(function() {
 		slide: function(event, ui) { year = "" + (1980 + ui.value); redraw(); return true;}
 	});
 });
+
+playSong("62j34ngh3ht45kj");
