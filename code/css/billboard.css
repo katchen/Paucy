@@ -22,6 +22,13 @@
 	top: 230px;
 }
 
+#player
+{
+	position: absolute;
+	left: 900px;
+	top: 300px;
+}
+
 #tooltip
 {
 	display:none;
