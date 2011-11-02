@@ -59,7 +59,7 @@ function arcTween(a) {
 function fetchSong(d)
 {
 	var query = d.name + " " + d.parent.name;
-	var url = "http://tinysong.com/b/" + encodeURIComponent(query);
+	var url = "http://tinysong.com/b/" + query;
 	$().ready(function(){ 
 		$.ajax({
 		        url: url,
