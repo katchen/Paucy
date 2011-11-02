@@ -59,12 +59,26 @@ function arcTween(a) {
 function fetchSong(d)
 {
 	var query = d.name + " " + d.parent.name;
-	var url = "http://tinysong.com/b/" + encodeURIComponent(query) + "?format=json&key=a7992435b8401471c2def1a4d07b4a3c&callback=?";
+	var url = "http://tinysong.com/b/" + encodeURIComponent(query);
 	$().ready(function(){ 
-	    $.getJSON(url, function(data) {
-			var id = data["SongID"];
-			playSong(id);
-	    });
+		$.ajax({
+		        url: url,
+		        data: { "lang" : "en-us",
+		                "format" : "json",
+		                "tags" : "sunset",
+						"key" : "a7992435b8401471c2def1a4d07b4a3c"
+		        },
+		        dataType: "jsonp",
+		        jsonp: "jsoncallback",
+		        timeout: 5000,
+		        success: function(data, status){
+		            var id = data["SongID"];
+					playSong(id);
+		        },
+		        error: function(XHR, textStatus, errorThrown){
+		            alert("ERREUR: " + textStatus);
+		        }
+		    });
 	});
 }
 
