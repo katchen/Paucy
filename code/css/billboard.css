@@ -25,7 +25,7 @@
 	color:#6c6c6c;
 	font-family:'Myriad Pro','Trebuchet MS', Helvetica, sans-serif;
 	font-size: 13px;
-	width:200px;
+	width:250px;
 	
 	background-color:#eee;
 	margin: 0;
@@ -42,10 +42,9 @@
 	position: absolute;
 	left:917px;
 	top: 105px;
-	font-family:'Myriad Pro','Trebuchet MS', Helvetica, sans-serif;
+	font-family:'Sansita One','Myriad Pro','Trebuchet MS', Helvetica, sans-serif;
 	font-size: 80px;
 	font-weight:bolder;
-	font-style:italic;
 	color: #555555;
 }
 
@@ -59,14 +58,22 @@
 
 #legend 
 {
-	padding:10px;
 	position:absolute;
 	left:900px;
 	top: 450px;
 	border: 1px #EDEDED solid;
 	height: 250px;
 	width:350px;
-	color: #555555;
+	color:#6c6c6c;
+	
+	background-color:#eee;
+	margin: 0;
+	padding:10px;
+	-moz-border-radius:10px;
+	-webkit-border-radius:10px;
+	-webkit-box-shadow: 0px 0 3px rgba(0,0,0,0.25);
+	-moz-box-shadow: 0px 0 3px rgba(0,0,0,0.25);
+	 box-shadow: 0px 0 3px rgba(0,0,0,0.25);
 }
 
 .genre, .artist, .song

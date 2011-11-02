@@ -230,9 +230,9 @@ function redraw()
 			{
 				$("#tooltip").html("Genre:&nbsp;<b>" + d.name+"</b>");
 			} else if(d.children && d.children.length > 0) {
-				$("#tooltip").html("Artist:&nbsp;<b>" + d.name + "</b><br />Number of songs on chart: " + d.children.length);
+				$("#tooltip").html("Artist:&nbsp;<b>" + d.name + "</b><br />Number of songs on chart: <b>" + d.children.length+"</b>");
 			} else if(!d.children) {
-				 $("#tooltip").html("Song:&nbsp;<b>" + d.name + "</b><br />Artist:&nbsp;<b>" + d.parent.name + "</b><br />Weeks on Chart:&nbsp;<b>" + d.weeks + "</b><br />Peak Position:&nbsp;<b>" + d.peak+"</b>");
+				 $("#tooltip").html("Song:&nbsp;<b>" + d.name + "</b><br />Artist:&nbsp;<b>" + d.parent.name + "</b><br />Weeks on Chart:&nbsp;<b>" + d.weeks ? d.weeks : 10 + "</b><br />Peak Position:&nbsp;<b>" + d.peak ? d.peak : 10 +"</b>");
 			}
 			$("#tooltip").show();
 			/*$("#popover #cause").html(d.cause);
