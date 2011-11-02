@@ -24,8 +24,7 @@
 	color:#6c6c6c;
 	font-family:'Myriad Pro','Trebuchet MS', Helvetica, sans-serif;
 	font-size: 13px;
-	position: relative;
-
+	width:200px;
 }
 
 #yearLabel
@@ -60,11 +59,25 @@
 	color: #555555;
 }
 
-#player
+.genre, .artist, .song
 {
+	position: relative;
+}
+
+.genre:after, .artist:after, .song:after
+{
+	display: none;
+	content: 'I am a tooltip';
+	border-image: url('../img/tooltip_bubble.png') 10 10 10 10 repeat;
+	border-width: 10px 10px 10px 10px;
 	position: absolute;
-	left: 900px;
-	top: 300px;
+	left: 20px;
+	top: -20px;
+}
+
+genre:hover:after, .artist:hover:after, .song:hover:after
+{
+	display: inline;
 }
 
 .song
