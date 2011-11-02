@@ -61,8 +61,8 @@ function fetchSong(d)
 	var query = d.name + " " + d.parent.name;
 	var url = 'http://tinysong.com/b/' + encodeURIComponent(query) + '?format=json&key=a7992435b8401471c2def1a4d07b4a3c';
 	$().ready(function(){ 
-	    $.get(url, function(data) {
-			var id = eval(request.responseText)["SongID"];
+	    $.json(url, function(data) {
+			var id = data["SongID"];
 			playSong(id);
 	    });
 	});
