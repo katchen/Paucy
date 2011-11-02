@@ -59,14 +59,13 @@ function arcTween(a) {
 function fetchSong(d)
 {
 	var query = d.name + " " + d.parent.name;
-	var url = 'http://tinysong.com/b/' + encodeURIComponent(query) + '?format=json&key=a7992435b8401471c2def1a4d07b4a3c?callback=b';
+	var url = 'http://tinysong.com/b/' + encodeURIComponent(query) + '?format=json&key=a7992435b8401471c2def1a4d07b4a3c?callback=?';
 	$().ready(function(){ 
 	    $.getJSON(url, function(data) {
 			var id = data["SongID"];
 			playSong(id);
 	    });
 	});
-	request.send(null);
 }
 
 function playSong(id)
