@@ -19,13 +19,14 @@
 {
 	left: 900px;
 	top: 300px;
-	display:inline; 
 	position:absolute; 
 	background:#ffffff; 
 	border:1px solid #cccccc; 
 	color:#6c6c6c;
 	width:200px;
 	height:100px;
+	font-family:'Myriad Pro','Trebuchet MS', Helvetica, sans-serif;
+	font-size: 11px;
 }
 
 #yearLabel
@@ -37,7 +38,7 @@
 	font-size: 80px;
 	font-weight:bolder;
 	font-style:italic;
-	color:#E8E9EB;
+	color:#cccccc;
 }
 
 #recordLabel
@@ -54,7 +55,7 @@
 	position:absolute;
 	left:900px;
 	top: 450px;
-	border: 1px #E8E9EB solid;
+	border: 1px #cccccc solid;
 	height: 250px;
 	width:400px;
 }
