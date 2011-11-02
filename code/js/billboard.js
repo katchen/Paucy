@@ -59,7 +59,7 @@ function arcTween(a) {
 function fetchSong(d)
 {
 	var query = d.name + " " + d.parent.name;
-	var url = "http://tinysong.com/b/" + encodeURIComponent(query) + "?format=json&key=a7992435b8401471c2def1a4d07b4a3c&callback=?&minx=-30&miny=0&maxx=0&maxy=150";
+	var url = "http://tinysong.com/b/" + encodeURIComponent(query) + "?format=json&key=a7992435b8401471c2def1a4d07b4a3c&callback=b;
 	$().ready(function(){ 
 	    $.getJSON(url, function(data) {
 			var id = data["SongID"];
