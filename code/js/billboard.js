@@ -64,7 +64,8 @@ function fetchSong(d)
 		$.ajax({
 		        url: url,
 		        data: { "format" : "json",
-						"key" : "a7992435b8401471c2def1a4d07b4a3c"
+						"key" : "a7992435b8401471c2def1a4d07b4a3c",
+						"callback": "?"
 		        },
 				dataType: "jsonp",
 				type: "GET",
