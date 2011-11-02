@@ -81,7 +81,8 @@ function redraw()
 		.text("Pop")
 		.attr("x", 48)
 		.attr("y", 25)
-		.attr("font-family", "Myriad Pro");		
+		.attr("font-family", "Myriad Pro")
+		.attr("color", "#6c6c6c");			
 	leg.append("svg:circle")
 		.style("fill", colors["Rock"])
 		.attr("r", 15)
@@ -91,7 +92,8 @@ function redraw()
 		.text("Rock")
 		.attr("x", 48)
 		.attr("y", 65)
-		.attr("font-family", "Myriad Pro");
+		.attr("font-family", "Myriad Pro")
+		.attr("color", "#6c6c6c");
 	leg.append("svg:circle")
 		.style("fill", colors["Rhythm and blues (R&B)"])
 		.attr("r", 15)
@@ -101,7 +103,8 @@ function redraw()
 		.text("Rhythm & blues (R&B)")
 		.attr("x", 48)
 		.attr("y", 105)
-		.attr("font-family", "Myriad Pro");
+		.attr("font-family", "Myriad Pro")
+		.attr("color", "#6c6c6c");
 	leg.append("svg:circle")
 		.style("fill", colors["Heavy metal"])
 		.attr("r", 15)
@@ -111,7 +114,8 @@ function redraw()
 		.text("Heavy metal")
 		.attr("x", 48)
 		.attr("y", 145)
-		.attr("font-family", "Myriad Pro");			
+		.attr("font-family", "Myriad Pro")
+		.attr("color", "#6c6c6c");
 	leg.append("svg:circle")
 		.style("fill", colors["Dance"])
 		.attr("r", 15)
@@ -121,7 +125,8 @@ function redraw()
 		.text("Dance")
 		.attr("x", 48)
 		.attr("y", 185)
-		.attr("font-family", "Myriad Pro");
+		.attr("font-family", "Myriad Pro")
+		.attr("color", "#6c6c6c");
 	leg.append("svg:circle")
 		.style("fill", colors["Alternative rock"])
 		.attr("r", 15)
@@ -131,7 +136,8 @@ function redraw()
 		.text("Alternative rock")
 		.attr("x", 48)
 		.attr("y", 225)
-		.attr("font-family", "Myriad Pro");	
+		.attr("font-family", "Myriad Pro")
+		.attr("color", "#6c6c6c");
 	leg.append("svg:circle")
 		.style("fill", colors["Soul"])
 		.attr("r", 15)
@@ -141,7 +147,8 @@ function redraw()
 		.text("Soul")
 		.attr("x", 253)
 		.attr("y", 25)
-		.attr("font-family", "Myriad Pro");
+		.attr("font-family", "Myriad Pro")
+		.attr("color", "#6c6c6c");
 	leg.append("svg:circle")
 		.style("fill", colors["Hip hop/Rap"])
 		.attr("r", 15)
@@ -151,7 +158,8 @@ function redraw()
 		.text("Hip hop/Rap")
 		.attr("x", 253)
 		.attr("y", 65)
-		.attr("font-family", "Myriad Pro");
+		.attr("font-family", "Myriad Pro")
+		.attr("color", "#6c6c6c");
 	leg.append("svg:circle")
 		.style("fill", colors["Funk"])
 		.attr("r", 15)
@@ -161,7 +169,8 @@ function redraw()
 		.text("Funk")
 		.attr("x", 253)
 		.attr("y", 105)
-		.attr("font-family", "Myriad Pro");
+		.attr("font-family", "Myriad Pro")
+		.attr("color", "#6c6c6c");
 	leg.append("svg:circle")
 		.style("fill", colors["Country"])
 		.attr("r", 15)
@@ -171,7 +180,8 @@ function redraw()
 		.text("Country")
 		.attr("x", 253)
 		.attr("y", 145)
-		.attr("font-family", "Myriad Pro");
+		.attr("font-family", "Myriad Pro")
+		.attr("color", "#6c6c6c");
 	leg.append("svg:circle")
 		.style("fill", colors["Jazz"])
 		.attr("r", 15)
@@ -181,7 +191,8 @@ function redraw()
 		.text("Jazz")
 		.attr("x", 253)
 		.attr("y", 185)
-		.attr("font-family", "Myriad Pro");
+		.attr("font-family", "Myriad Pro")
+		.attr("color", "#6c6c6c");
 	leg.append("svg:circle")
 		.style("fill", colors["Other"])
 		.attr("r", 15)
@@ -191,7 +202,8 @@ function redraw()
 		.text("Other")
 		.attr("x", 253)
 		.attr("y", 225)
-		.attr("font-family", "Myriad Pro");
+		.attr("font-family", "Myriad Pro")
+		.attr("color", "#6c6c6c");
 
 	document.getElementById("yearLabel").innerHTML = year;
 	var vis = d3.select("#record").append("svg:svg")
@@ -232,7 +244,7 @@ function redraw()
 			} else if(d.children && d.children.length > 0) {
 				$("#tooltip").html("Artist:&nbsp;<b>" + d.name + "</b><br />Number of songs on chart: <b>" + d.children.length+"</b>");
 			} else if(!d.children) {
-				 $("#tooltip").html("Song:&nbsp;<b>" + d.name + "</b><br />Artist:&nbsp;<b>" + d.parent.name + "</b><br />Weeks on Chart:&nbsp;<b>" + d.weeks ? d.weeks : 10 + "</b><br />Peak Position:&nbsp;<b>" + d.peak ? d.peak : 10 +"</b>");
+				 $("#tooltip").html("Song:&nbsp;<b>" + d.name + "</b><br />Artist:&nbsp;<b>" + d.parent.name + "</b><br />Weeks on Chart:&nbsp;<b>" + (d.weeks ? d.weeks : 10) + "</b><br />Peak Position:&nbsp;<b>" + (d.peak ? d.peak : 10) +"</b>");
 			}
 			$("#tooltip").show();
 			/*$("#popover #cause").html(d.cause);

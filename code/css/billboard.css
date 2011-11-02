@@ -19,7 +19,7 @@
 {
 	display:none;
 	left: 900px;
-	top: 300px;
+	top: 320px;
 	position:absolute; 
 	border: 1px #EDEDED solid;
 	color:#6c6c6c;
@@ -45,7 +45,7 @@
 	font-family:'Sansita One','Myriad Pro','Trebuchet MS', Helvetica, sans-serif;
 	font-size: 80px;
 	font-weight:bolder;
-	color: #555555;
+	color:#6c6c6c;
 }
 
 #recordLabel
