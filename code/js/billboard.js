@@ -69,8 +69,6 @@ function fetchSong(d)
 						"key" : "a7992435b8401471c2def1a4d07b4a3c"
 		        },
 		        dataType: "jsonp",
-		        jsonp: "jsoncallback",
-		        timeout: 5000,
 		        success: function(data, status){
 		            var id = data["SongID"];
 					playSong(id);
