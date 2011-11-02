@@ -220,11 +220,11 @@ function redraw()
 			// If a genre
 			if(d.children && d.children[0].children && d.children[0].children.length > 0)
 			{
-				$("#tooltip").html("Genre: " + d.name);
+				$("#tooltip").html("Genre:&nbsp;<b>" + d.name+"</b>");
 			} else if(d.children && d.children.length > 0) {
-				$("#tooltip").html("Artist: " + d.name + "<br /># songs on chart: " + d.children.length);
+				$("#tooltip").html("Artist:&nbsp;<b>" + d.name + "</b><br />Number of songs on chart: " + d.children.length);
 			} else if(!d.children) {
-				 $("#tooltip").html("Song: " + d.name + "<br />Artist: " + d.parent.name + "<br />Weeks on Chart: " + d.weeks + "<br />Peak Position: " + d.peak);
+				 $("#tooltip").html("Song:&nbsp;<b>" + d.name + "</b><br />Artist:&nbsp;<b>" + d.parent.name + "</b><br />Weeks on Chart:&nbsp;<b>" + d.weeks + "</b><br />Peak Position:&nbsp;<b>" + d.peak+"</b>");
 			}
 			$("#tooltip").show();
 			/*$("#popover #cause").html(d.cause);
