@@ -68,7 +68,7 @@
 {
 	display: none;
 	content: 'I am a tooltip';
-	border-image: url('/img/tooltip_bubble.png') 10 10 10 10 repeat;
+	border-image: url('img/tooltip_bubble.png') 10 10 10 10 repeat;
 	border-width: 10px 10px 10px 10px;
 	position: absolute;
 	left: 20px;
