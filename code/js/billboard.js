@@ -216,7 +216,15 @@ function redraw()
 	paths.on("mouseover", function(d) {
 		paths.filter(function(d2) { if (!d.parent) return false; return d != d2 })
 			.attr("opacity", 0.3);
-			$("#tooltip").html(d.name);
+			// If a genre
+			if(d.children[0].children.length > 0)
+			{
+				$("#tooltip").html("Genre: " + d.name);
+			} else if(d.children.length > 0) {
+				$("#tooltip").html("Artist: " + d.name + "\nSongs on chart this year: " + d.children.length);
+			} else if(d.children.length == 0) {
+				 $("#tooltip").html("Song: " + d.name + "\nArtist: " + d.parent.name + "\nWeeks on Chart: " + d.weeks + "\nPeak Position" + d.peak);
+			}
 			$("#tooltip").show();
 			/*$("#popover #cause").html(d.cause);
 			$("#popover #people").html(d.people);
