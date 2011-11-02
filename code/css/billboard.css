@@ -17,6 +17,7 @@
 
 #tooltip
 {
+	visibility:hidden;
 	left: 900px;
 	top: 300px;
 	position:absolute; 
@@ -64,9 +65,9 @@
 	position:absolute;
 	left:900px;
 	top: 450px;
-	border: 1px #cccccc solid;
+	border: 1px #EDEDED solid;
 	height: 250px;
-	width:400px;
+	width:350px;
 	color: #555555;
 }
 
