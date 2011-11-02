@@ -82,7 +82,7 @@ function redraw()
 		.attr("x", 48)
 		.attr("y", 25)
 		.attr("font-family", "Myriad Pro")
-		.attr("color", "#6c6c6c");			
+		.attr("fill", "#6c6c6c");			
 	leg.append("svg:circle")
 		.style("fill", colors["Rock"])
 		.attr("r", 15)
@@ -93,7 +93,7 @@ function redraw()
 		.attr("x", 48)
 		.attr("y", 65)
 		.attr("font-family", "Myriad Pro")
-		.attr("color", "#6c6c6c");
+		.attr("fill", "#6c6c6c");
 	leg.append("svg:circle")
 		.style("fill", colors["Rhythm and blues (R&B)"])
 		.attr("r", 15)
@@ -104,7 +104,7 @@ function redraw()
 		.attr("x", 48)
 		.attr("y", 105)
 		.attr("font-family", "Myriad Pro")
-		.attr("color", "#6c6c6c");
+		.attr("fill", "#6c6c6c");
 	leg.append("svg:circle")
 		.style("fill", colors["Heavy metal"])
 		.attr("r", 15)
@@ -115,7 +115,7 @@ function redraw()
 		.attr("x", 48)
 		.attr("y", 145)
 		.attr("font-family", "Myriad Pro")
-		.attr("color", "#6c6c6c");
+		.attr("fill", "#6c6c6c");
 	leg.append("svg:circle")
 		.style("fill", colors["Dance"])
 		.attr("r", 15)
@@ -126,7 +126,7 @@ function redraw()
 		.attr("x", 48)
 		.attr("y", 185)
 		.attr("font-family", "Myriad Pro")
-		.attr("color", "#6c6c6c");
+		.attr("fill", "#6c6c6c");
 	leg.append("svg:circle")
 		.style("fill", colors["Alternative rock"])
 		.attr("r", 15)
@@ -137,7 +137,7 @@ function redraw()
 		.attr("x", 48)
 		.attr("y", 225)
 		.attr("font-family", "Myriad Pro")
-		.attr("color", "#6c6c6c");
+		.attr("fill", "#6c6c6c");
 	leg.append("svg:circle")
 		.style("fill", colors["Soul"])
 		.attr("r", 15)
@@ -148,7 +148,7 @@ function redraw()
 		.attr("x", 253)
 		.attr("y", 25)
 		.attr("font-family", "Myriad Pro")
-		.attr("color", "#6c6c6c");
+		.attr("fill", "#6c6c6c");
 	leg.append("svg:circle")
 		.style("fill", colors["Hip hop/Rap"])
 		.attr("r", 15)
@@ -159,7 +159,7 @@ function redraw()
 		.attr("x", 253)
 		.attr("y", 65)
 		.attr("font-family", "Myriad Pro")
-		.attr("color", "#6c6c6c");
+		.attr("fill", "#6c6c6c");
 	leg.append("svg:circle")
 		.style("fill", colors["Funk"])
 		.attr("r", 15)
@@ -170,7 +170,7 @@ function redraw()
 		.attr("x", 253)
 		.attr("y", 105)
 		.attr("font-family", "Myriad Pro")
-		.attr("color", "#6c6c6c");
+		.attr("fill", "#6c6c6c");
 	leg.append("svg:circle")
 		.style("fill", colors["Country"])
 		.attr("r", 15)
@@ -181,7 +181,7 @@ function redraw()
 		.attr("x", 253)
 		.attr("y", 145)
 		.attr("font-family", "Myriad Pro")
-		.attr("color", "#6c6c6c");
+		.attr("fill", "#6c6c6c");
 	leg.append("svg:circle")
 		.style("fill", colors["Jazz"])
 		.attr("r", 15)
@@ -192,7 +192,7 @@ function redraw()
 		.attr("x", 253)
 		.attr("y", 185)
 		.attr("font-family", "Myriad Pro")
-		.attr("color", "#6c6c6c");
+		.attr("fill", "#6c6c6c");
 	leg.append("svg:circle")
 		.style("fill", colors["Other"])
 		.attr("r", 15)
@@ -203,7 +203,7 @@ function redraw()
 		.attr("x", 253)
 		.attr("y", 225)
 		.attr("font-family", "Myriad Pro")
-		.attr("color", "#6c6c6c");
+		.attr("fill", "#6c6c6c");
 
 	document.getElementById("yearLabel").innerHTML = year;
 	var vis = d3.select("#record").append("svg:svg")
@@ -371,18 +371,19 @@ function playTick()
 	}
 }
 
+function pausePlay()
+{
+	clearInterval(interval);
+	playing = false;
+	$( "play").display("block");
+	
+}
+
 function togglePlay()
 {
-	if (playing)
-	{
-		clearInterval(interval);
-		playing = false;
-	}
-	else
-	{
-		interval = setInterval(playTick, 1000);
-		playing = true;
-	}
+	interval = setInterval(playTick, 1000);
+	playing = true;
+	$( "play").display("none");
 }
 
 $(document).ready(function() {

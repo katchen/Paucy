@@ -9,10 +9,17 @@
 #play
 {
 	position: absolute;
-	left: 950px;
-	top: 250px;
-	height: 32px;
-	width: 32px;
+	left: 995px;
+	top: 230px;
+	z-index:5;
+	
+}
+
+#pause
+{
+	position: absolute;
+	left: 995px;
+	top: 230px;
 }
 
 #tooltip
