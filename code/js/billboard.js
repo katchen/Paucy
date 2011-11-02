@@ -63,9 +63,10 @@ function fetchSong(d)
 	request.open('GET', 'http://tinysong.com/b/' + encodeURIComponent(query) + '?format=json&key=APIKey', true);
 	request.onreadystatechange = function (aEvt) {
 	  if (request.readyState == 4) {
-	     if (request.status == 200)
+	     if (request.status == 200) {
 	       var id = eval(request.responseText)["SongID"];
 		   playSong(id);
+		}
 	     else
 	       console.log('Error', request.statusText);
 	  }
