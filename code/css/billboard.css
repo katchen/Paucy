@@ -17,7 +17,6 @@
 
 #tooltip
 {
-	visibility:hidden;
 	left: 900px;
 	top: 300px;
 	position:absolute; 
@@ -26,17 +25,7 @@
 	font-family:'Myriad Pro','Trebuchet MS', Helvetica, sans-serif;
 	font-size: 13px;
 	position: relative;
-	
-	background-color:#eee;
-	margin: 0;
-	padding:10px;
-	text-align:center;
-	width:180px;
-	-moz-border-radius:10px;
-	-webkit-border-radius:10px;
-	-webkit-box-shadow: 0px 0 3px rgba(0,0,0,0.25);
-	-moz-box-shadow: 0px 0 3px rgba(0,0,0,0.25);
-	 box-shadow: 0px 0 3px rgba(0,0,0,0.25); 
+
 }
 
 #yearLabel
