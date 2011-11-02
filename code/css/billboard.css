@@ -6,6 +6,15 @@
 	width: 200px;
 }
 
+#play
+{
+	position: absolute;
+	left: 950px;
+	top: 250px;
+	height: 32px;
+	width: 32px;
+}
+
 #tooltip
 {
 	left: 900px;
@@ -48,4 +57,30 @@
 	border: 1px #E8E9EB solid;
 	height: 250px;
 	width:400px;
+}
+
+.genre, .artist, .song
+{
+	position: relative;
+}
+
+.genre:after, .artist:after, .song:after
+{
+	display: none;
+	content: 'I am a tooltip';
+	border-image: url('/img/tooltip_bubble.png') 10 10 10 10 repeat;
+	border-width: 10px 10px 10px 10px;
+	position: absolute;
+	left: 20px;
+	top: -20px;
+}
+
+genre:hover:after, .artist:hover:after, .song:hover:after
+{
+	display: inline;
+}
+
+.song
+{
+	cursor: pointer;
 }

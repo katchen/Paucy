@@ -202,6 +202,7 @@ function redraw()
 		//.attr("display", function(d) { return d.depth ? null : "none"; }) // hide inner ring
 		.attr("d", arc)
 		.attr("fill-rule", "evenodd")
+		.attr("class", function(d) { return d.children ? (d.children.length == 0 || d.children[0].children ? "genre" : "artist") : "song"; })
 		.style("stroke", "#fff")
 		.style("fill", function(d) { 
 			color = colors[d.parent ? (d.children ? (d.children.length == 0 || d.children[0].children ? d : d.parent) : d.parent.parent).name : "year"]; 
@@ -275,7 +276,9 @@ d3.csv("billboardHot.csv", function(csvData)
 							name: cur.artist,
 							children: [{
 								name: cur.song,
-								size: parseInt(cur.weeks)*WEIGHTS.WEEKS + (100 - parseInt(cur.peak))*WEIGHTS.PEAK
+								size: parseInt(cur.weeks)*WEIGHTS.WEEKS + (100 - parseInt(cur.peak))*WEIGHTS.PEAK,
+								peak: cur.peak,
+								weeks: cur.weeks
 							}]
 						});
 					}
@@ -291,7 +294,9 @@ d3.csv("billboardHot.csv", function(csvData)
 						name: cur.artist,
 						children: [{
 							name: cur.song,
-							size: parseInt(cur.weeks)*WEIGHTS.WEEKS + (100 - parseInt(cur.peak))*WEIGHTS.PEAK
+							size: parseInt(cur.weeks)*WEIGHTS.WEEKS + (100 - parseInt(cur.peak))*WEIGHTS.PEAK,
+							peak: cur.peak,
+							weeks: cur.weeks
 						}]
 					}]
 				});
@@ -317,7 +322,9 @@ d3.csv("billboardHot.csv", function(csvData)
 						name: cur.artist,
 						children: [{
 							name: cur.song,
-							size: parseInt(cur.weeks)*WEIGHTS.WEEKS + (100 - parseInt(cur.peak))*WEIGHTS.PEAK
+							size: parseInt(cur.weeks)*WEIGHTS.WEEKS + (100 - parseInt(cur.peak))*WEIGHTS.PEAK,
+							peak: cur.peak,
+							weeks: cur.weeks
 						}]
 					});
 				}
@@ -326,6 +333,37 @@ d3.csv("billboardHot.csv", function(csvData)
 	}
 	redraw();
 });
+
+var playing = false;
+var interval;
+
+function playTick()
+{
+	if (year == '2010')
+	{
+		playing = false;
+	}
+	else
+	{
+		year = "" + (parseInt(year) + 1);
+		$( "#slider" ).slider("value", parseInt(year) - 1980);
+		redraw();
+	}
+}
+
+function togglePlay()
+{
+	if (playing)
+	{
+		clearInterval(interval);
+		playing = false;
+	}
+	else
+	{
+		interval = setInterval(playTick, 1000);
+		playing = true;
+	}
+}
 
 $(document).ready(function() {
 	$( "#slider" ).slider({
