@@ -15,6 +15,13 @@
 	width: 32px;
 }
 
+#player
+{
+	position: absolute;
+	left: 900px;
+	top: 300px;
+}
+
 #tooltip
 {
 	display:none;

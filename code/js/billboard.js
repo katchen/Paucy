@@ -56,6 +56,23 @@ function arcTween(a) {
   };
 }
 
+function fetchSong(d)
+{
+	var query = d.name + " " + d.parent.name;
+	var request = new XMLHttpRequest();
+	request.open('GET', 'http://tinysong.com/b/' + encodeURIComponent(query) + '?format=json&key=APIKey', true);
+	request.onreadystatechange = function (aEvt) {
+	  if (request.readyState == 4) {
+	     if (request.status == 200)
+	       var id = eval(request.responseText)["SongID"];
+		   playSong(id);
+	     else
+	       console.log('Error', request.statusText);
+	  }
+	};
+	request.send(null);
+}
+
 function playSong(id)
 {
 	var flashvars = {hostname: "cowbell.grooveshark.com", songIds: id, style: "metal", p: "0"};
@@ -244,6 +261,7 @@ function redraw()
 		                   .show();*/
 		     })
 		.on("mouseout", function() { paths.attr("opacity", 1); $("#tooltip").hide(); })
+		.on("click", function(d) { if (!d.children) fetchSong(d); })
 }
 
 // Get Data
