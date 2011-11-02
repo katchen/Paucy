@@ -17,25 +17,24 @@
 
 #tooltip
 {
+	display:none;
 	left: 900px;
 	top: 300px;
 	position:absolute; 
-	border:1px solid #cccccc; 
+	border: 1px #EDEDED solid;
 	color:#6c6c6c;
 	font-family:'Myriad Pro','Trebuchet MS', Helvetica, sans-serif;
 	font-size: 13px;
-	position: relative;
+	width:200px;
 	
 	background-color:#eee;
 	margin: 0;
 	padding:10px;
-	text-align:center;
-	width:180px;
 	-moz-border-radius:10px;
 	-webkit-border-radius:10px;
 	-webkit-box-shadow: 0px 0 3px rgba(0,0,0,0.25);
 	-moz-box-shadow: 0px 0 3px rgba(0,0,0,0.25);
-	 box-shadow: 0px 0 3px rgba(0,0,0,0.25); 
+	 box-shadow: 0px 0 3px rgba(0,0,0,0.25);
 }
 
 #yearLabel
@@ -64,17 +63,31 @@
 	position:absolute;
 	left:900px;
 	top: 450px;
-	border: 1px #cccccc solid;
+	border: 1px #EDEDED solid;
 	height: 250px;
-	width:400px;
+	width:350px;
 	color: #555555;
 }
 
-#player
+.genre, .artist, .song
 {
+	position: relative;
+}
+
+.genre:after, .artist:after, .song:after
+{
+	display: none;
+	content: 'I am a tooltip';
+	border-image: url('../img/tooltip_bubble.png') 10 10 10 10 repeat;
+	border-width: 10px 10px 10px 10px;
 	position: absolute;
-	left: 900px;
-	top: 300px;
+	left: 20px;
+	top: -20px;
+}
+
+genre:hover:after, .artist:hover:after, .song:hover:after
+{
+	display: inline;
 }
 
 .song
