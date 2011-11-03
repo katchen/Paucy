@@ -4,7 +4,7 @@ const WEIGHTS =
 	WEEKS: 1
 }
 
-var playerStr = '<object width="250" height="40"><param name="movie" value="http://grooveshark.com/songWidget.swf" /><param name="wmode" value="window" /><param name="allowScriptAccess" value="always" /><param name="flashvars" value="hostname=cowbell.grooveshark.com&songIDs=30438188&style=metal&p=0" /><embed src="http://grooveshark.com/songWidget.swf" type="application/x-shockwave-flash" width="250" height="40" flashvars="hostname=cowbell.grooveshark.com&songIDs=%s&style=metal&p=0" allowScriptAccess="always" wmode="window" /></object>'
+var playerStr = '<object width="250" height="50"><param name="movie" value="http://grooveshark.com/songWidget.swf" /><param name="wmode" value="window" /><param name="allowScriptAccess" value="always" /><param name="flashvars" value="hostname=cowbell.grooveshark.com&songIDs=%s&style=metal&p=0" /><embed src="http://grooveshark.com/songWidget.swf" type="application/x-shockwave-flash" width="250" height="50" flashvars="hostname=cowbell.grooveshark.com&songIDs=%s&style=metal&p=0" allowScriptAccess="always" wmode="window" /></object>'
 
 var data = {}
 var year = '2010'
@@ -61,7 +61,7 @@ function arcTween(a) {
 function playSong(id)
 {	
 	if (id != 'NULL') {
-		$('#player').html(playerStr.replace('%s',id));
+		$('#player').html(playerStr.replace('/%s/g',id));
 		/*var flashvars = {hostname: "cowbell.grooveshark.com", songIds: id, style: "metal", p: "0"};
 		var params = {wmode: "window", allowScriptAccess: "always"};
 		var attributes = null;
