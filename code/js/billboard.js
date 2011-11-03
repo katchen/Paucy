@@ -61,7 +61,7 @@ function arcTween(a) {
 function playSong(id)
 {	
 	if (id && id != 'NULL') {
-		$('#player').html(playerStr.replace('/%s/g',id));
+		$('#player').html(playerStr.replace('/\%s/g',id));
 		/*var flashvars = {hostname: "cowbell.grooveshark.com", songIds: id, style: "metal", p: "0"};
 		var params = {wmode: "window", allowScriptAccess: "always"};
 		var attributes = null;
