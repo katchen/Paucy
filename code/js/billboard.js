@@ -62,7 +62,7 @@ function playSong(id)
 		var flashvars = {hostname: "cowbell.grooveshark.com", songIds: id, style: "metal", p: "0"};
 		var params = {wmode: "window", allowScriptAccess: "always"};
 		var attributes = null;
-		swfobject.embedSWF("http://grooveshark.com/songWidget.swf", "player", 250, 40, "9.0.0","expressInstall.swf", flashvars, params, attributes);
+		swfobject.embedSWF("http://listen.grooveshark.com/songWidget.swf", "player", 250, 40, "9.0.0","expressInstall.swf", flashvars, params, attributes);
 	}
 }
 
