@@ -56,49 +56,14 @@ function arcTween(a) {
   };
 }
 
-function jsonp(d)
-{
-	console.log(d);
-}
-function fetchSong(d)
-{
-	var query = d.name + " " + d.parent.name;
-	var url = "http://tinysong.com/b/" + encodeURIComponent(query) + "?format=json&key=86f0dd1bc3c582f08f72af324b9f88f5";
-	var xhr = new XMLHttpRequest();
-	xhr.open('GET', url, false);
-	xhr.onreadystatechange = function() {
-		if (this.readyState == 4) {
-			if (this.status == 200) {
-				console.log(JSON.parse(this.responseText));
-			}
-		} 
-	};
-	xhr.send(null);
-	
-	/*$().ready(function(){ 
-		$.ajax({
-		        url: url,
-		        data: { "format" : "json",
-						"key" : "86f0dd1bc3c582f08f72af324b9f88f5",
-		        },
-				type: "GET",
-		        success: function(data, status){
-		            var id = data["SongID"];
-					playSong(id);
-		        },
-		        error: function(XHR, textStatus, errorThrown){
-		            alert("ERREUR: " + textStatus);
-		        }
-		    });
-	});*/
-}
-
 function playSong(id)
 {
-	var flashvars = {hostname: "cowbell.grooveshark.com", songIds: id, style: "metal", p: "0"};
-	var params = {wmode: "window", allowScriptAccess: "always"};
-	var attributes = null;
-	swfobject.embedSWF("http://grooveshark.com/songWidget.swf", "player", 250, 40, "9.0.0","expressInstall.swf", flashvars, params, attributes);
+	if (id != 'NULL') {
+		var flashvars = {hostname: "cowbell.grooveshark.com", songIds: id, style: "metal", p: "0"};
+		var params = {wmode: "window", allowScriptAccess: "always"};
+		var attributes = null;
+		swfobject.embedSWF("http://grooveshark.com/songWidget.swf", "player", 250, 40, "9.0.0","expressInstall.swf", flashvars, params, attributes);
+	}
 }
 
 function redraw()
@@ -293,7 +258,7 @@ function redraw()
 		                   .show();*/
 		     })
 		.on("mouseout", function() { paths.attr("opacity", 1); $("#tooltip").hide(); })
-		.on("click", function(d) { if (!d.children) fetchSong(d); })
+		.on("click", function(d) { if (!d.children) playsong(d.gsId); })
 }
 
 // Get Data
@@ -336,7 +301,8 @@ d3.csv("billboardHot.csv", function(csvData)
 								name: cur.song,
 								size: parseInt(cur.weeks)*WEIGHTS.WEEKS + (100 - parseInt(cur.peak))*WEIGHTS.PEAK,
 								peak: cur.peak,
-								weeks: cur.weeks
+								weeks: cur.weeks,
+								gsId: cur.gsId
 							}]
 						});
 					}
@@ -354,7 +320,8 @@ d3.csv("billboardHot.csv", function(csvData)
 							name: cur.song,
 							size: parseInt(cur.weeks)*WEIGHTS.WEEKS + (100 - parseInt(cur.peak))*WEIGHTS.PEAK,
 							peak: cur.peak,
-							weeks: cur.weeks
+							weeks: cur.weeks,
+							gsId: cur.gsId
 						}]
 					}]
 				});
@@ -382,7 +349,8 @@ d3.csv("billboardHot.csv", function(csvData)
 							name: cur.song,
 							size: parseInt(cur.weeks)*WEIGHTS.WEEKS + (100 - parseInt(cur.peak))*WEIGHTS.PEAK,
 							peak: cur.peak,
-							weeks: cur.weeks
+							weeks: cur.weeks,
+							gsId: cur.gsId
 						}]
 					});
 				}
@@ -431,5 +399,3 @@ $(document).ready(function() {
 		slide: function(event, ui) { year = "" + (1980 + ui.value); redraw(); return true;}
 	});
 });
-
-playSong("62j34ngh3ht45kj");
