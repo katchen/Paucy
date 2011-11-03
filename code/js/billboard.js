@@ -258,7 +258,7 @@ function redraw()
 		                   .show();*/
 		     })
 		.on("mouseout", function() { paths.attr("opacity", 1); $("#tooltip").hide(); })
-		.on("click", function(d) { if (!d.children) playsong(d.gsId); })
+		.on("click", function(d) { if (!d.children) playSong(d.gsId); })
 }
 
 // Get Data
