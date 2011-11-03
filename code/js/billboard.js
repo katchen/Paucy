@@ -4,7 +4,7 @@ const WEIGHTS =
 	WEEKS: 1
 }
 
-var playerStr = '<object width="250" height="50"><param name="movie" value="http://grooveshark.com/songWidget.swf" /><param name="wmode" value="window" /><param name="allowScriptAccess" value="always" /><param name="flashvars" value="hostname=cowbell.grooveshark.com&songIDs=%s&style=metal&p=1" /><embed src="http://grooveshark.com/songWidget.swf" type="application/x-shockwave-flash" width="250" height="50" flashvars="hostname=cowbell.grooveshark.com&songIDs=%s&style=metal&p=0" allowScriptAccess="always" wmode="window" /></object>'
+var playerStr = '<object width="250" height="40"><param name="movie" value="http://grooveshark.com/songWidget.swf" /><param name="wmode" value="window" /><param name="allowScriptAccess" value="always" /><param name="flashvars" value="hostname=cowbell.grooveshark.com&songIDs=%s&style=metal&p=1" /><embed src="http://grooveshark.com/songWidget.swf" type="application/x-shockwave-flash" width="250" height="40" flashvars="hostname=cowbell.grooveshark.com&songIDs=%s&style=metal&p=0" allowScriptAccess="always" wmode="window" /></object>'
 
 var data = {}
 var year = '2010'
