@@ -63,8 +63,19 @@ function jsonp(d)
 function fetchSong(d)
 {
 	var query = d.name + " " + d.parent.name;
-	var url = "http://tinysong.com/b/" + encodeURIComponent(query);
-	$().ready(function(){ 
+	var url = "http://tinysong.com/b/" + encodeURIComponent(query) + "?format=json&key=86f0dd1bc3c582f08f72af324b9f88f5";
+	var xhr = new XMLHttpRequest();
+	xhr.open('GET', url, false);
+	xhr.onreadystatechange = function() {
+		if (this.readyState == 4) {
+			if (this.status == 200) {
+				console.log(JSON.parse(this.responseText));
+			}
+		} 
+	};
+	xhr.send(null);
+	
+	/*$().ready(function(){ 
 		$.ajax({
 		        url: url,
 		        data: { "format" : "json",
@@ -79,7 +90,7 @@ function fetchSong(d)
 		            alert("ERREUR: " + textStatus);
 		        }
 		    });
-	});
+	});*/
 }
 
 function playSong(id)
