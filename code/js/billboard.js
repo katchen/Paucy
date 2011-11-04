@@ -401,6 +401,6 @@ $(document).ready(function() {
 		slide: function(event, ui) { year = "" + (1980 + ui.value); redraw(); return true;}
 	});
 	setTimeout(1000, function() {
-		$('#overlay').fadeOut('slow', null);
-	}	
+		$('#overlay').fadeOut('slow', null) 
+	});
 });
