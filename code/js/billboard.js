@@ -400,7 +400,7 @@ $(document).ready(function() {
 		value: 30,
 		slide: function(event, ui) { year = "" + (1980 + ui.value); redraw(); return true;}
 	});
-	setTimeout(1000, function() {
+	setTimeout(function() {
 		$('#overlay').fadeOut('slow'); 
-	});
+	}, 2000);
 });
