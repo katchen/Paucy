@@ -73,6 +73,7 @@
 #overlay
 {
 	position: absolute;
+	display: none;
 	top: 107px;
 	left: 212px;
 	z-index: 9;
