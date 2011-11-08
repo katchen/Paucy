@@ -390,8 +390,11 @@ function pausePlay()
 
 function togglePlay()
 {
-	if (year == '2010') year = '1980';
-	redraw();
+	if (year == '2010') {
+		year = '1980';
+		$( "#slider" ).slider("value", 1980);
+		redraw();
+	}
 	interval = setInterval(playTick, 1000);
 	playing = true;
 	$( "#play").hide();
