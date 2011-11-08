@@ -367,14 +367,13 @@ var interval;
 
 function playTick()
 {
-	//if (year == '2010')
-	//{
-	//	playing = false;
-	//}
+	if (year == '2010')
+	{
+		playing = false;
+	}
 	else
 	{
 		year = "" + (parseInt(year) + 1);
-		if (year > 2010): year = 1980
 		$( "#slider" ).slider("value", parseInt(year) - 1980);
 		redraw();
 	}
@@ -390,6 +389,8 @@ function pausePlay()
 
 function togglePlay()
 {
+	if (year == '2010'): year = '1980'
+	redraw()
 	interval = setInterval(playTick, 1000);
 	playing = true;
 	$( "#play").hide();
