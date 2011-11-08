@@ -405,5 +405,5 @@ $(document).ready(function() {
 	}, 1000); 
 	setTimeout(function() {
 		$('#overlay').fadeOut(1000, 'swing'); 
-	}, 4000);
+	}, 6000);
 });
