@@ -370,6 +370,7 @@ function playTick()
 	if (year == '2010')
 	{
 		playing = false;
+		pausePlay();
 	}
 	else
 	{
@@ -390,7 +391,7 @@ function pausePlay()
 function togglePlay()
 {
 	if (year == '2010'): year = '1980'
-	redraw()
+	redraw();
 	interval = setInterval(playTick, 1000);
 	playing = true;
 	$( "#play").hide();
